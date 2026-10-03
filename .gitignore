@@ -1,0 +1,62 @@
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+/lib/
+/lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+build/
+.pnp
+.pnp.js
+
+# Data & Temp
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+samples_temp/
+scratch/
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing & Coverage
+.coverage
+htmlcov/
+
