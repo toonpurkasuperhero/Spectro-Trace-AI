@@ -1,0 +1,81 @@
+{
+  "generated_at": "2026-10-03 09:44:46Z",
+  "env": "demo",
+  "runs": [
+    {
+      "job_id": "local_1791020688100",
+      "module": "print",
+      "title": "3D Print Layer Analysis \u2014 Micro-Defect & Remediation",
+      "risk_level": "high",
+      "risk_score": 100,
+      "findings_count": 1,
+      "cached_features": {
+        "remediation": {
+          "status": "ready",
+          "allowed_findings": [
+            "print_1"
+          ],
+          "label": "AI-generated illustration (display only)",
+          "cached": true
+        },
+        "simulation": {
+          "sim_id": "sim_e1c31f1fdf9b",
+          "scenario": "corrosion",
+          "variants": 2,
+          "model_used": "cloudinary-vision-auto",
+          "status": "done"
+        },
+        "export": {
+          "profile": "slide_16x9",
+          "fill": "solid",
+          "cached": true
+        }
+      }
+    },
+    {
+      "job_id": "local_1791020701225",
+      "module": "thermal",
+      "title": "Radiometric Thermal Inspection \u2014 Transformer & HVAC",
+      "risk_level": "high",
+      "risk_score": 100,
+      "findings_count": 1,
+      "cached_features": {
+        "export": {
+          "profile": "slide_16x9",
+          "fill": "blur",
+          "cached": true
+        }
+      }
+    },
+    {
+      "job_id": "local_1791020710104",
+      "module": "specimen",
+      "title": "Materials / Histology Specimen \u2014 Microstructure",
+      "risk_level": "medium",
+      "risk_score": 100,
+      "findings_count": 12,
+      "cached_features": {
+        "export": {
+          "profile": "square_1x1",
+          "fill": "blur",
+          "cached": true
+        }
+      }
+    },
+    {
+      "job_id": "local_1791020718787",
+      "module": "audio",
+      "title": "Forensic Acoustic Signal \u2014 Bearing & Electrical Hum",
+      "risk_level": "high",
+      "risk_score": 80,
+      "findings_count": 2,
+      "cached_features": {
+        "export": {
+          "profile": "mobile_9x16",
+          "fill": "solid",
+          "cached": true
+        }
+      }
+    }
+  ]
+}
