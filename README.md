@@ -3,6 +3,8 @@
 > **One pipeline, four domains, one config file each.**
 > Any physical signal is measured losslessly in the backend, then turned into a secure, searchable, annotated, deep-zoomable visual workspace by Cloudinary.
 
+Deployed Link : (https://spectro-trace-ai.vercel.app/)
+
 ---
 
 ## Modules
