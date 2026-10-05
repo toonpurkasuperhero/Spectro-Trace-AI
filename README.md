@@ -4,7 +4,7 @@
 > Any physical signal is measured losslessly in the backend, then turned into a secure, searchable, annotated, deep-zoomable visual workspace by Cloudinary.
 
 Deployed Link : (https://spectro-trace-ai.vercel.app/)
-
+Demo Video URL : (https://drive.google.com/file/d/1F-t3mLCSWhpwUSrAovQXuiFThVN1QyWb/view?usp=sharing)
 ---
 
 ## Modules
