@@ -126,7 +126,7 @@ export default function SimulationPanel({
   module,
   mode = '*',
   rawImageUrl,
-  apiBase = 'http://localhost:8000'
+  apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'
 }: SimulationPanelProps) {
   const [models, setModels] = useState<SimulationModel[]>([]);
   const [selectedScenario, setSelectedScenario] = useState<string>('corrosion');

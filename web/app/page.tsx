@@ -119,6 +119,7 @@ export default function SpectroTraceDashboard() {
   const [selectedFinding, setSelectedFinding] = useState<Finding | null>(null);
 
   // History tab state
+  const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
   const [historyItems, setHistoryItems] = useState<any[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
   const [reviewStates, setReviewStates] = useState<Record<string, string>>({});
@@ -126,7 +127,7 @@ export default function SpectroTraceDashboard() {
   const fetchHistory = async () => {
     setHistoryLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/history');
+      const res = await fetch(`${API_BASE}/history`);
       if (res.ok) {
         const data = await res.json();
         setHistoryItems(data.resources || []);
@@ -139,7 +140,7 @@ export default function SpectroTraceDashboard() {
     // Optimistic update
     setReviewStates(prev => ({ ...prev, [jobId]: state }));
     try {
-      const res = await fetch(`http://localhost:8000/jobs/${jobId}/review`, {
+      const res = await fetch(`${API_BASE}/jobs/${jobId}/review`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ review_state: state }),
@@ -193,7 +194,7 @@ export default function SpectroTraceDashboard() {
       formData.append('module', moduleId);
       formData.append('file', fileBytes, filename);
 
-      const res = await fetch('http://localhost:8000/jobs/run-local', {
+      const res = await fetch(`${API_BASE}/jobs/run-local`, {
         method: 'POST',
         body: formData,
       });
@@ -218,7 +219,7 @@ export default function SpectroTraceDashboard() {
     const interval = setInterval(async () => {
       attempts++;
       try {
-        const res = await fetch(`http://localhost:8000/jobs/${jobId}`);
+        const res = await fetch(`${API_BASE}/jobs/${jobId}`);
         if (res.ok) {
           const job: JobData = await res.json();
           setCurrentStage(job.stage);

@@ -50,7 +50,7 @@ export default function RemediationView({
   findings = [],
   rawImageUrl,
   annotatedImageUrl,
-  apiBase = 'http://localhost:8000'
+  apiBase = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'
 }: RemediationViewProps) {
   const [remediationUrl, setRemediationUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
