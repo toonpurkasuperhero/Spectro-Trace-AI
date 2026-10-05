@@ -306,7 +306,7 @@ export default function UploadPage() {
                   <AlertCircle size={12} className="mt-0.5 shrink-0" />
                   <span>{error}</span>
                 </div>
-                {(error.toLowerCase().includes('fetch') || error.toLowerCase().includes('network') || error.toLowerCase().includes('failed')) && (
+                {(error.toLowerCase().includes('failed to fetch') || error.toLowerCase().includes('network error')) && (
                   <p className="text-rose-300/70 pl-4">
                     {API_BASE.includes('localhost')
                       ? '⚠ NEXT_PUBLIC_API_BASE is not set — set it in your Vercel project settings to your backend URL (e.g. https://your-api.onrender.com)'
