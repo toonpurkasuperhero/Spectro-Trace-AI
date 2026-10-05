@@ -9,9 +9,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Copy requirements and install (supports both root context and api subfolder context)
+COPY requirements.txt* api/requirements.txt* ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+ENV PYTHONPATH=/app:/app/api
+
+CMD ["sh", "-c", "if [ -f main.py ]; then uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}; else uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}; fi"]
