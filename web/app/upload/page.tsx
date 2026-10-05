@@ -294,15 +294,26 @@ export default function UploadPage() {
 
             <div className="border border-white/10 rounded-xl p-4 bg-white/[0.02] text-xs text-slate-500 space-y-1">
               <p className="text-slate-400 font-medium mb-2 flex items-center gap-1.5"><Info size={11} /> How it works</p>
-              <p>1. File is submitted to the local analysis API</p>
+              <p>1. File is submitted to the analysis API</p>
               <p>2. Pipeline runs: Encode → Measure → Vision → Publish</p>
-              <p>3. Results appear in the run detail page via SSE</p>
+              <p>3. Results appear in the run detail page</p>
+              <p className="mt-1 text-slate-600 font-mono truncate">API: {API_BASE}</p>
             </div>
 
             {error && (
-              <div className="flex items-start gap-2 px-3 py-2.5 bg-rose-500/10 border border-rose-500/30 rounded-xl text-xs text-rose-400">
-                <AlertCircle size={12} className="mt-0.5 shrink-0" />
-                {error}
+              <div className="flex flex-col gap-1.5 px-3 py-2.5 bg-rose-500/10 border border-rose-500/30 rounded-xl text-xs text-rose-400">
+                <div className="flex items-start gap-2">
+                  <AlertCircle size={12} className="mt-0.5 shrink-0" />
+                  <span>{error}</span>
+                </div>
+                {(error.toLowerCase().includes('fetch') || error.toLowerCase().includes('network') || error.toLowerCase().includes('failed')) && (
+                  <p className="text-rose-300/70 pl-4">
+                    {API_BASE.includes('localhost')
+                      ? '⚠ NEXT_PUBLIC_API_BASE is not set — set it in your Vercel project settings to your backend URL (e.g. https://your-api.onrender.com)'
+                      : `Cannot reach backend at ${API_BASE}. Check that the server is running and ALLOWED_ORIGINS includes your frontend URL.`
+                    }
+                  </p>
+                )}
               </div>
             )}
 
