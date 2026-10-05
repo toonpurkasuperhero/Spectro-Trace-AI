@@ -196,10 +196,11 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS Middleware
+# CORS Middleware - allows localhost, Vercel deployments, and custom domains
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins_list,
+    allow_origin_regex=r"https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
